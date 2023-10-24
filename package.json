@@ -2,15 +2,15 @@
   "name": "portfolio-starter-jenswillems",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EHB-MCT/portfolio-starter-JensWillems.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -18,10 +18,7 @@
   },
   "homepage": "https://github.com/EHB-MCT/portfolio-starter-JensWillems#readme",
   "dependencies": {
-    "body-parser": "^1.20.2",
     "express": "^4.18.2",
-    "knex": "^3.0.1",
-    "mysql2": "^3.6.2",
-    "ngeohash": "^0.6.3"
+    "nodemon": "^3.0.1"
   }
 }
