@@ -17,6 +17,17 @@ const db = knex({
   },
 });
 
+app.get("/users", async (req, res) => {
+  try {
+    const users = await db.select().from('users');
+    console.log("Data successfully fetched");
+    res.json({ status: 'success', data: users });
+  } catch (err) {
+    console.error('Error fetching data from the database:', err);
+    res.status(500).json({ status: 'error', message: 'Internal Server Error' });
+  }
+});
+
 app.post("/postUser", async (req, res) => {
     const userName = req.body.name;
   
