@@ -17,6 +17,10 @@ const db = knex({
   },
 });
 
+app.get("/", (req, res) => {
+  res.send({message: "hello"})
+})
+
 app.get("/users", async (req, res) => {
   try {
     const users = await db.select().from('users');
