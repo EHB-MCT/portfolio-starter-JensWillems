@@ -49,6 +49,29 @@ app.post("/postUser", async (req, res) => {
     }
   });
 
+  app.delete("/deleteUser/:userId", async (req, res) => {
+    const userId = req.params.userId;
+  
+    if (!userId) {
+      return res.status(400).json({ status: 'error', message: 'User ID is required' });
+    }
+  
+    try {
+      const deletedCount = await db('users').where({ id: userId }).del();
+      if (deletedCount === 1) {
+        console.log('User deleted successfully');
+        res.json({ status: 'success', message: 'User deleted successfully' });
+      } else {
+        console.log('User not found');
+        res.status(404).json({ status: 'error', message: 'User not found' });
+      }
+    } catch (err) {
+      console.error('Error deleting user from the database:', err);
+      res.status(500).json({ status: 'error', message: 'Internal Server Error', error: err.message });
+    }
+  });
+  
+
   app.listen(3000, (err) => {
     if (!err) {
       console.log("Running on port " + 3000);
