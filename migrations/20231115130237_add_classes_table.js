@@ -28,5 +28,6 @@ exports.down = function (knex) {
     .then(() => {
       return knex.schema.dropTable("classes");
     });
+    
 };
   
