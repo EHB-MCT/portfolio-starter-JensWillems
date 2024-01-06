@@ -6,7 +6,7 @@ table.string('classgroup');
 table.double('grade');
  */
 
-function CheckStudentName(name){
+function CheckSpellName(name){
 if(name == null || 
     name.length <= 1 || 
     typeof(name) != "string" || 
@@ -18,5 +18,5 @@ if(name == null ||
 }
 
 module.exports = {
-    CheckStudentName
+    CheckSpellName
 }

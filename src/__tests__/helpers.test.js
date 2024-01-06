@@ -1,4 +1,4 @@
-const {CheckStudentName} = require("../helpers/endpointHelpers.js")
+const {CheckSpellName} = require("../helpers/endpointHelpers.js")
 
 // test('adds 1 + 2 to equal 3', () => {
 //     expect(1+2).toBe(3);
@@ -12,14 +12,14 @@ table.string('classgroup');
 table.double('grade');
  */
 
-test("check name",() => {
+test("check sopell name",() => {
 
-expect(CheckStudentName("")).toBe(false);
-expect(CheckStudentName(null)).toBe(false);
-expect(CheckStudentName("i")).toBe(false);
-expect(CheckStudentName(1)).toBe(false);
-expect(CheckStudentName("gdfhiljknlmkqmsiiuhgtifuhifsoihsfhssudh")).toBe(false);
+expect(CheckSpellName("")).toBe(false);
+expect(CheckSpellName(null)).toBe(false);
+expect(CheckSpellName("i")).toBe(false);
+expect(CheckSpellName(1)).toBe(false);
+expect(CheckSpellName("gdfhiljknlmkqmsiiuhgtifuhifsoihsfhssudh")).toBe(false);
 
-expect(CheckStudentName("Jens")).toBe(true);
-expect(CheckStudentName("Jens Wil")).toBe(true);
+expect(CheckSpellName("Jens")).toBe(true);
+expect(CheckSpellName("Jens Wil")).toBe(true);
 })
