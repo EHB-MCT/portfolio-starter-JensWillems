@@ -6,7 +6,7 @@ module.exports = {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'test',
+        database: 'd&d spell list',
       },
       migrations: {
         tableName: 'knex_migrations',
