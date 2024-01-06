@@ -2,22 +2,27 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db.js');
+const { CheckSchoolName } = require('../helpers/endpointSchools.js');
 
 // POST /schools/postSchool
 router.post('/postSchool', async (req, res) => {
     const schoolData = req.body;
-
-    try {
-      await db('schools_of_magic').insert(schoolData);
   
-      const insertedSchool = await db('schools_of_magic')
-        .where('school_name', schoolData.school_name)
-        .first();
+    if (CheckSchoolName(schoolData.school_name)) {
+      try {
+        await db('schools_of_magic').insert(schoolData);
   
-      res.status(201).json(insertedSchool);
-    } catch (err) {
-      console.error('Error inserting school:', err);
-      res.status(500).json({ error: err });
+        const insertedSchool = await db('schools_of_magic')
+          .where('school_name', schoolData.school_name)
+          .first();
+  
+        res.status(201).json(insertedSchool);
+      } catch (err) {
+        console.error('Error inserting school:', err);
+        res.status(500).json({ error: err });
+      }
+    } else {
+      res.status(401).send({ message: 'School name not formatted correctly' });
     }
   });
 

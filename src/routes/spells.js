@@ -2,25 +2,25 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db.js')
-const { CheckSpellName } = require("../helpers/endpointHelpers.js");
+const { CheckSpell } = require("../helpers/endpointSpells.js");
 
 
 // POST /spells/postSpell
 router.post('/postSpell', async (req, res) => {
-  const spellData = req.body;
-
-  if (CheckSpellName(spellData.spell_name)) {
-    db('spells').insert(spellData).returning('*')
-      .then((insertedSpell) => {
-        res.status(201).json(insertedSpell[0]);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err });
-      });
-  } else {
-    res.status(401).send({ message: "Spell name not formatted correctly" });
-  }
-});
+    const spellData = req.body;
+  
+    if (CheckSpell(spellData)) {
+      db('spells').insert(spellData).returning('*')
+        .then((insertedSpell) => {
+          res.status(201).json(insertedSpell[0]);
+        })
+        .catch((err) => {
+          res.status(500).json({ error: err });
+        });
+    } else {
+      res.status(401).send({ message: "Spell data not formatted correctly" });
+    }
+  });
 
 // GET /spells
 router.get('/', async (req, res) => {
