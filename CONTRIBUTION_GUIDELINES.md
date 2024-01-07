@@ -25,6 +25,7 @@ This project and everyone participating in it are governed by our [Code of Condu
      ```bash
      git push origin feature-or-bugfix-branch
      ```
+    
 ### Reporting Bugs
 
 Before submitting a bug report:
@@ -40,7 +41,6 @@ Follow the established coding standards and style for this project. If there is 
 ## Documentation
 
 Help us maintain clear and concise documentation. If you notice gaps or errors, please contribute by updating the relevant documentation.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
