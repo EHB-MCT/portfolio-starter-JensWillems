@@ -31,6 +31,7 @@ router.get('/spells', async (req, res) => {
       res.status(500).json({ error: err });
     }
   });
+  
 // GET /spells/:spellId
 router.get('/:spellId', async (req, res) => {
     const { spellId } = req.params;
