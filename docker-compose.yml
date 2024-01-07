@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  api:
+    image: crshlab/cicdgroepa2023:latest
+    ports:
+      - 8080:3000
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      MYSQL_DATABASE: d&d_spell_list
+      MYSQL_HOST: host.docker.internal
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - host  # Add this network
+
+  db:
+    ports:
+      - 3306:3306
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      MYSQL_DATABASE: d&d_spell_list
+    volumes:
+      - ./_volumes/store:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -hlocalhost -uroot -p$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 
+
+networks:
+  host:  # Define the host network
+    external: true
