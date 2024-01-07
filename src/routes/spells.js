@@ -22,8 +22,8 @@ router.post('/postSpell', async (req, res) => {
     }
   });
 
-// GET /spells
-router.get('/', async (req, res) => {
+// GET /spells/spells
+router.get('/spells', async (req, res) => {
     try {
       const spells = await db('spells').select('*');
       res.status(200).json(spells);
@@ -31,6 +31,7 @@ router.get('/', async (req, res) => {
       res.status(500).json({ error: err });
     }
   });
+  
 // GET /spells/:spellId
 router.get('/:spellId', async (req, res) => {
     const { spellId } = req.params;

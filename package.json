@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "test": "jest --watchAll",
-    "test:integration": "jest students.integration.test.js"
+    "test:integration": "jest spells.integration.test.js",
+    "lighthouse": "lighthouse http://localhost:3000/spells/2"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "lighthouse": "^11.4.0",
     "supertest": "^6.3.3"
   }
 }

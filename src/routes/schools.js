@@ -26,6 +26,17 @@ router.post('/postSchool', async (req, res) => {
     }
   });
 
+// GET schools/schools
+router.get('/schools', async (req, res) => {
+    try {
+      const schools = await db('schools_of_magic').select('*');
+      res.status(200).json(schools);
+    } catch (err) {
+      res.status(500).json({ error: err });
+    }
+});
+
+
 // GET /schools/:schoolId
 router.get('/:schoolId', async (req, res) => {
   const { schoolId } = req.params;

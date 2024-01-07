@@ -1,4 +1,4 @@
-//Index.js
+//src/Index.js
 const app = require("./app.js")
 const port = 3000;
 
