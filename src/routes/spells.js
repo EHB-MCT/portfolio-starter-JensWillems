@@ -23,7 +23,7 @@ router.post('/postSpell', async (req, res) => {
   });
 
 // GET /spells
-router.get('/', async (req, res) => {
+router.get('/spells', async (req, res) => {
     try {
       const spells = await db('spells').select('*');
       res.status(200).json(spells);
