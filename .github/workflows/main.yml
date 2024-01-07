@@ -2,7 +2,8 @@ name: testflow
 
 on:
   push:
-    branches:    - feat/ci/cd  
+    branches:
+      - feat/ci/cd
 
 env:
   POSTGRES_USER: test
