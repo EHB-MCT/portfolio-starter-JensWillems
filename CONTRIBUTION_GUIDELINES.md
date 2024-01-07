@@ -10,17 +10,17 @@ This project and everyone participating in it are governed by our [Code of Condu
 1. clone the repository to your own Github
   ```bash
      git clone https://github.com/your-username/[project-name].git
-     ```
+  ```
 2. Create a branch for your feature or bug fix
   ```bash
      git checkout -b feature-or-bugfix-branch
-     ```
+  ```
 
 3. Commit the changes with a description 
     ```bash
      git add .
      git commit -m "Brief description of your changes"
-     ```
+    ```
 4. Push the changes to the github
      ```bash
      git push origin feature-or-bugfix-branch
