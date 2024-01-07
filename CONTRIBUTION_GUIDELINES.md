@@ -24,7 +24,7 @@ This project and everyone participating in it are governed by our [Code of Condu
 4. Push the changes to the github
      ```bash
      git push origin feature-or-bugfix-branch
-     ```
+   ```
 ### Reporting Bugs
 
 Before submitting a bug report:
