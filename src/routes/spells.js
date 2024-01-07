@@ -22,7 +22,7 @@ router.post('/postSpell', async (req, res) => {
     }
   });
 
-// GET /spells
+// GET /spells/spells
 router.get('/spells', async (req, res) => {
     try {
       const spells = await db('spells').select('*');

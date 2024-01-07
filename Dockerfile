@@ -1,7 +1,7 @@
 
 FROM node:latest
 
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
 COPY package*.json .
 
